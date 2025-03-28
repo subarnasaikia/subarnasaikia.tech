@@ -1,0 +1,66 @@
+/* style.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.canvas, .container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Ensure it is above the canvas but does not block links */
+    pointer-events: auto; /* Allow interaction */
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.social-handles a {
+    color: #81d4fa;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social-handles a:hover {
+    text-decoration: underline;
+}
+
+#pixelCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Place canvas behind content */
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* #pixelCanvas {
+    pointer-events: none;
+} */
