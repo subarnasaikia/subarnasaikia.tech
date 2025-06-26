@@ -1,10 +1,11 @@
 
-import { Github, Linkedin, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { Github, Linkedin, ExternalLink, ChevronLeft, ChevronRight, Menu } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const projectsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -80,16 +81,47 @@ const Index = () => {
             <h1 className="text-2xl font-bold font-edu-qld" style={{color: 'rgb(189, 235, 249)'}}>
               Subarna Saikia
             </h1>
-            <nav className="flex space-x-6 text-sm">
+            {/* <nav className="flex space-x-6 text-sm">
               <a href="#about" className="text-gray-300 hover:text-green-400 transition-colors">About</a>
               <a href="#achievements" className="text-gray-300 hover:text-green-400 transition-colors">Achievements</a>
               <a href="#experience" className="text-gray-300 hover:text-green-400 transition-colors">Experience</a>
               <a href="#skills" className="text-gray-300 hover:text-green-400 transition-colors">Skills</a>
               <a href="#projects" className="text-gray-300 hover:text-green-400 transition-colors">Projects</a>
-              {/* <a href="#blogs" className="text-gray-300 hover:text-green-400 transition-colors">Blogs</a> */}
+              <a href="#blogs" className="text-gray-300 hover:text-green-400 transition-colors">Blogs</a>
+            </nav> */}
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex space-x-6 text-sm">
+              <a href="#about" className="text-gray-300 hover:text-green-400 transition-colors">About</a>
+              <a href="#achievements" className="text-gray-300 hover:text-green-400 transition-colors">Achievements</a>
+              <a href="#experience" className="text-gray-300 hover:text-green-400 transition-colors">Experience</a>
+              <a href="#skills" className="text-gray-300 hover:text-green-400 transition-colors">Skills</a>
+              <a href="#projects" className="text-gray-300 hover:text-green-400 transition-colors">Projects</a>
             </nav>
+
+            {/* Mobile Hamburger */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-gray-300 hover:text-green-400 transition"
+              >
+                <Menu size={24} />
+              </button>
+            </div>
           </div>
         </div>
+        {mobileMenuOpen && (
+            <div className="md:hidden px-6 mt-2">
+              <div className="flex flex-col space-y-4 bg-gray-800 p-4 rounded-lg shadow-lg">
+                <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-gray-300 hover:text-green-400 transition-colors">About</a>
+                <a href="#achievements" onClick={() => setMobileMenuOpen(false)} className="text-gray-300 hover:text-green-400 transition-colors">Achievements</a>
+                <a href="#experience" onClick={() => setMobileMenuOpen(false)} className="text-gray-300 hover:text-green-400 transition-colors">Experience</a>
+                <a href="#skills" onClick={() => setMobileMenuOpen(false)} className="text-gray-300 hover:text-green-400 transition-colors">Skills</a>
+                <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="text-gray-300 hover:text-green-400 transition-colors">Projects</a>
+            </div>
+  </div>
+)}
+
       </div>
 
       <div className="max-w-4xl mx-auto px-6 py-12">
